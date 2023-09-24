@@ -7,48 +7,32 @@ import 'screen4contactme.dart';
 
 void main() => runApp(const MyApp());
 
-GoRouter _router = GoRouter(
-  routes: <RouteBase>[
-    GoRoute(
-      path: '/',
-      builder: (BuildContext context, GoRouterState state) {
-        return const LoginScreen();
-      },
-      routes: <RouteBase>[
-        GoRoute(
-          path: 'welcome',
-          builder: (BuildContext context, GoRouterState state) {
-            return const WelcomeScreen();
-          },
-          routes: <RouteBase>[
-            GoRoute(
-              path: 'anger',
-              builder: (BuildContext context, GoRouterState state) {
-                return const AngerManagementScreen();
-              },
-              routes: <RouteBase>[
-                GoRoute(
-                  path: 'calm',
-                  builder: (BuildContext context, GoRouterState state) {
-                    return const CalmDownScreen();
-                  },
-                  routes: <RouteBase>[
-                    GoRoute(
-                      path: 'contact',
-                      builder: (BuildContext context, GoRouterState state) {
-                        return const ContactMeScreen();
-                      },
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ],
-        ),
-      ],
-    ),
-  ],
-);
+GoRouter router() {
+  return GoRouter(
+    routes: [
+      GoRoute(
+        path: '/',
+        builder: (context, state) => const LoginScreen(),
+      ),
+      GoRoute(
+        path: '/welcome',
+        builder: (context, state) => const WelcomeScreen(),
+      ),
+      GoRoute(
+        path: '/anger',
+        builder: (context, state) => const AngerManagementScreen(),
+      ),
+      GoRoute(
+        path: '/calm',
+        builder: (context, state) => const CalmDownScreen(),
+      ),
+      GoRoute(
+        path: '/contact',
+        builder: (context, state) => const ContactMeScreen(),
+      ),
+    ],
+  );
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -56,7 +40,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      routerConfig: _router,
+      routerConfig: router(),
       debugShowCheckedModeBanner: false,
     );
   }
