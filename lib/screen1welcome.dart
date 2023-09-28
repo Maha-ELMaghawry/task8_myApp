@@ -15,7 +15,7 @@ class WelcomeScreen extends StatelessWidget {
         children: [
           Image.asset('assets/images/Welcome.jpg'),
           const Padding(
-            padding: EdgeInsets.symmetric(vertical: 50),
+            padding: EdgeInsets.symmetric(vertical: 20),
             child: Text(
               "Welcome to the < Calm Down > app",
               style: TextStyle(
